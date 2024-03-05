@@ -12,10 +12,9 @@
     function crear($tabla,$parametros,$conn){
         $col =implode(', ',array_keys($parametros));  
        
-        $valores =  implode(', ',array_values($parametros));     
+        $valores =  ":" . implode(', :', array_keys($parametros));    
         var_dump($valores);
-       // $query=$conn->prepare("insert into {$tabla}({$col}) values ('{$valores}')");
-        
-        // $query->execute();
+        $query=$conn->prepare("insert into {$tabla}({$col}) values ({$valores})");
+        $query->execute($parametros);
              
     }
