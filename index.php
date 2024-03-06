@@ -16,7 +16,10 @@ require 'cosultas.php';
     $conn =conexion::dbconexion();
     $alumnos = getAll($conn,$tabla);
     foreach($alumnos as $alumno){
-        echo $alumno['nombre']."<br>";    
+        echo $alumno['nombre'];
+        echo " <a href=editarcarrera.php?id={$alumno['id']}>🖋️ </a>";
+        echo " ❌ ";
+        echo "<br>";    
     }
     ?>
     <form action="agregar.php" method="post">

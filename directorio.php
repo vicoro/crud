@@ -17,7 +17,10 @@ require 'cosultas.php';
     $personas = getAll($conn,$tabla);
     foreach($personas as $persona){
         echo $persona['nombre']." "; 
-        echo $persona['apellido']."<br>";  
+        echo $persona['apellido']; 
+        echo " <a href=editardirectorio.php?id={$persona['id']}>🖋️ </a>";
+        echo " ❌ ";
+        echo "<br>";  
     }
     ?>
     <form action="agregarPersona.php" method="post">

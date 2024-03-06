@@ -1,13 +1,16 @@
 <?php
 require 'conexion.php';
 require 'cosultas.php';
-//var_dump($_POST);
+
+
+
 $tabla = "directorio";
+$id = $_POST['id'];
 $parametros = [
     'nombre'=>$_POST['nombre'],
-    'apellido'=>$_POST['apellido'],
+    'apellido'=>$_POST['apellido'],    
 ];
 
 $conn =conexion::dbconexion();
-crear($tabla,$parametros,$conn);
-header('Location: directorio.php');
+actualizar($tabla,$parametros,$conn,$id);
+//header('Location: directorio.php');
